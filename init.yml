@@ -1,0 +1,7 @@
+- hosts: all
+  sudo: false
+  tasks:
+    - name: mkdir .ssh
+      file: dest=/home/tshst/.ssh state=directory owner=tshst group=wheel mode=700
+    - name: add public_key
+      copy: src=~/Dropbox/Public/tshst.keys dest=/home/tshst/.ssh/authorized_keys
